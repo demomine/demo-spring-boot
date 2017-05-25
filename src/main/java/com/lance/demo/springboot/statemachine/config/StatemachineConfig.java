@@ -3,19 +3,20 @@ package com.lance.demo.springboot.statemachine.config;
 import com.lance.demo.springboot.statemachine.enums.Events;
 import com.lance.demo.springboot.statemachine.enums.States;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.statemachine.config.EnableStateMachine;
 import org.springframework.statemachine.config.EnumStateMachineConfigurerAdapter;
 import org.springframework.statemachine.config.builders.StateMachineStateConfigurer;
 import org.springframework.statemachine.config.builders.StateMachineTransitionConfigurer;
-
 import java.util.EnumSet;
 
 /**
  * Created by perdonare on 2017/5/11.
  * spring config
  */
-@Configuration
+/*@Configuration
 @EnableStateMachine
+@EnableAsync()*/
 class StatemachineConfig extends EnumStateMachineConfigurerAdapter<States, Events> {
 
     @Override

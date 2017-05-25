@@ -15,11 +15,18 @@ import static org.junit.Assert.*;
 @SpringBootTest(classes = {App.class})
 @RunWith(SpringJUnit4ClassRunner.class)
 public class StatemachineServiceTest {
-    @Autowired
+    //@Autowired
     private StatemachineService statemachineService;
+    @Autowired
+    private ComplexStatemachineService complexStatemachineService;
     @Test
     public void doSignals() throws Exception {
         statemachineService.doSignals();
+    }
+
+    @Test
+    public void doSignalsComplex() throws Exception {
+        complexStatemachineService.doSignals();
     }
 
 }
