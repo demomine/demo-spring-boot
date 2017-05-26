@@ -12,6 +12,7 @@ import org.springframework.statemachine.config.builders.StateMachineStateConfigu
 import org.springframework.statemachine.config.builders.StateMachineTransitionConfigurer;
 
 import java.util.ArrayList;
+import java.util.EnumSet;
 import java.util.List;
 
 /**
@@ -27,31 +28,29 @@ public class StatemachineConfigComplex extends EnumStateMachineConfigurerAdapter
         states
                 .withStates()
                 .initial(ComplexStates.INIT, stateContext -> log.info("========init action"))
-                .state(ComplexStates.DOING, stateContext -> log.info("========doing action in"), stateContext -> log.info("===========doing action out"))
-                .state(ComplexStates.ACCEPT, getAcceptActions())
-                .state(ComplexStates.SUCCESS, stateContext -> log.info("========success action"))
-                .state(ComplexStates.FAIL, stateContext -> log.info("========fail action"));
+                //异常只能在transition里面传递而不能再state中传递
+                /*.state(ComplexStates.DOING, stateContext -> {log.info("========doing exception");stateContext.getException().setStackTrace(new RuntimeException("MyError").getStackTrace());},
+                        stateContext -> log.info("===========dong exit exception"+stateContext.getException().getMessage()))*/
+
+                .state(ComplexStates.DOING, stateContext -> log.info("========doing start"),
+                        stateContext -> log.info("===========dong end"))
+                .state(ComplexStates.ACCEPT, stateContext -> log.info("========accept action in"))
+                .states(EnumSet.allOf(ComplexStates.class));
     }
 
     @Override
     public void configure(StateMachineTransitionConfigurer<ComplexStates, ComplexEvents> transitions) throws Exception {
         transitions.withExternal()
                     .source(ComplexStates.INIT).target(ComplexStates.DOING).event(ComplexEvents.SEND)
+                        .action(stateContext -> {log.info("++++++++++++exception throw");/*throw new RuntimeException("error");*/}
+                            ,stateContext -> {log.info("++++++++++++exception get");})
+                    //.guard(stateContext -> {log.info("============check doing exception guard");return stateContext.getException()==null;})
                 .and().withExternal()
                     .source(ComplexStates.DOING).target(ComplexStates.ACCEPT).event(ComplexEvents.NOTICE)
-                .and().withExternal()
-                    .source(ComplexStates.ACCEPT).target(ComplexStates.FAIL).event(ComplexEvents.FAIL)
-                .and().withExternal()
-                    .source(ComplexStates.ACCEPT).target(ComplexStates.SUCCESS).event(ComplexEvents.SUCCESS)
-                .and().withExternal()
-                    .source(ComplexStates.FAIL).target(ComplexStates.DOING).event(ComplexEvents.SEND);
+                    .action(stateContext -> {log.info("++++++++++++accept");});
+                    //.guard(stateContext -> {log.info("============check accept exception guard");return stateContext.getException()==null;});
+
     }
 
-    private List<Action<ComplexStates, ComplexEvents>> getAcceptActions() {
-        List<Action<ComplexStates, ComplexEvents>> list = new ArrayList<>();
-        list.add(stateContext -> log.info("========accept action 1"));
-        list.add(stateContext -> log.info("=========accept action 2"));
-        list.add(stateContext -> log.info("============accept action 3"));
-        return list;
-    }
+
 }

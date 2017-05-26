@@ -1,5 +1,41 @@
 # demo-spring-boot
 #   spring statemachine官方文档阅读
+##  概念
+
+1.  State Machine
+>   用来管理状态,驱动状态状态的转换,事件的触发的总管
+2.  State
+>   状态
+3.  Extended State
+>   扩展状态,用于减少正常状态
+3.  Transition
+>   状态转换的一个过程
+4.  Event
+>   触发转换的一个事件
+5.  Initial State
+>   初始化状态,多regions可以有多个初始化状态
+6.  End State
+>   终态,状态机的最终态
+7.  History State
+>   历史的状态,包含浅和深两种历史状态
+8.  Choice State
+>   选择状态
+9.  Junction State
+>   多输入选择状态
+10.  Fork State
+>   叉状态
+11.  Join State
+>   加入状态
+12.  Entry Point
+>   允许进入子状态机的进入点
+13.  Exit Point
+>   允许离开子状态机的进入点
+14.  Region
+>   状态的正交集合
+15.  Guard
+>   判定状态的转换能否进行
+16.  Action
+>   触发转换或状态变更的动作
 
 ##  特性
 1. 使状态机模式更加易用
@@ -87,6 +123,7 @@
     
 ##  配置
 1.  配置 `annotations`
+
     1.1 `@EnableStateMachine`
         *   创建StateMachine所必须的annotation
         *   通常使用`@Configuration`并继承`EnumStateMachineConfigurerAdapter` 或 `StateMachineConfigurerAdapter`实现回调
@@ -94,6 +131,7 @@
         *   创建`StateMachineFactory`时使用
 
 2.  配置 `states`
+
     2.1 常规配置
     ```
     states
@@ -102,8 +140,10 @@
             .end(States.SF)
             .states(EnumSet.allOf(States.class));    
     ```
+    
     2.2 `StateMachineConfigurerAdapter`
         *   实现了 `StateMachineConfigurer`
+        
     2.3 `EnumStateMachineConfigurerAdapter`
             *   `限定回调为枚举`
             *   继承自 `StateMachineConfigurerAdapter`
@@ -213,6 +253,7 @@
     }    
     ```
 8.  配置 `State Actions`
+
     8.1 Transition Action Error Handling
         *  错误处理 用户可以使用自定义异常,环境变量使用`StateContext`
         *   示例
@@ -292,6 +333,7 @@
         }
         ```
 9.  配置 `Pseudo States`
+
     9.1 Initial State
         *   通过 `initial()` 方法标记初始化状态
         *   示例
@@ -314,6 +356,7 @@
                 };
             }
         ```
+        
     9.2 Terminate State
         *   通过 `end()` 方法标记最终状态
         *   每个独立的 `sub-machine` 或 `region`最多可以调用一次
@@ -326,12 +369,19 @@
                 .end(States.SF)
                 .states(EnumSet.allOf(States.class));
         ```
+        
     9.3 History State
+    
     9.4 Choice State
+    
     9.5 Junction State
+    
     9.6 Fork State
+    
     9.7 Join State
+    
     9.8 Exit/Entry Point States
+    
 10. 配置 `Common Settings`
 11. 配置 `Model`
 12. 注意事项
@@ -377,6 +427,15 @@
 ##  Triggering Transitions
 
 ##  Listening State Machine Events
+
+##  StateContext
+1.  context作用
+    1.1 获取当前`Message`, `Event` 或 `MessageHeaders`.
+    1.2 获取 `Extended` State.
+    1.3 获取 state machine 和 state machine的错误.
+    1.4 获取 `Transition`.
+    1.5 获取 `source` 和 目标 `state`
+    1.6 获取 `stage`
 
 ##  Context Integration
 
