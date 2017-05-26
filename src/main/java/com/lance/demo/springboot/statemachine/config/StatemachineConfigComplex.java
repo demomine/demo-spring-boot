@@ -18,9 +18,9 @@ import java.util.List;
 /**
  * Created by perdonare on 2017/5/25.
  */
-@Configuration
+/*@Configuration
 @EnableStateMachine
-@EnableAsync
+@EnableAsync*/
 @Slf4j
 public class StatemachineConfigComplex extends EnumStateMachineConfigurerAdapter<ComplexStates,ComplexEvents> {
     @Override

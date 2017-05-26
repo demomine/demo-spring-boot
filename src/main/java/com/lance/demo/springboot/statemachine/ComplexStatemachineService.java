@@ -12,8 +12,8 @@ import org.springframework.stereotype.Service;
 /**
  * Created by perdonare on 2017/5/24.
  */
-@Service
-@OnTransition
+//@Service
+//@OnTransition
 public class ComplexStatemachineService {
     @Autowired
     StateMachine<ComplexStates, ComplexEvents> stateMachine;
