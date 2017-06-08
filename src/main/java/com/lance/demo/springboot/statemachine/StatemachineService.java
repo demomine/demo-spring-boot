@@ -3,7 +3,6 @@ package com.lance.demo.springboot.statemachine;
 import com.lance.demo.springboot.statemachine.enums.Events;
 import com.lance.demo.springboot.statemachine.enums.States;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.statemachine.StateMachine;
 import org.springframework.stereotype.Service;
 
