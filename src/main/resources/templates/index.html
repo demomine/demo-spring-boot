@@ -1,0 +1,20 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<header>
+<title>spring boot demo thymeleaf</title>
+</header>
+
+<body>
+    <p>test thymeleaf</p>
+    <p th:utext="${name}">hello</p>
+    <p th:utext="${#locale.country}">hello</p>
+    <p th:utext="${session.id}">today</p>
+    <p th:utext="${#response.characterEncoding}">today</p>
+    <p th:text="#{name.name}">hello</p>
+
+    <p th:if="${#locale.country} == CNN">cn cn</p>
+    <p th:text="${user.name} ?: 'no aaa'">cn cn</p>
+
+    <a href="/user">user</a>
+    <a href="/user2" th:href="@{/user2(name=${name})}">user2</a>
+</body>
+</html>

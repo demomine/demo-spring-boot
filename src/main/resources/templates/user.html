@@ -1,0 +1,12 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<header>
+<title>spring boot demo thymeleaf</title>
+</header>
+
+<body>
+<div th:object="${user}">
+    <p>Name: <span th:text="*{name}">name</span> </p>
+    <p>Age: <span th:text="*{age}">age</span> </p>
+</div>
+</body>
+</html>z
