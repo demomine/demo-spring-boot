@@ -25,7 +25,7 @@ import static org.junit.Assert.*;
         TransactionalTestExecutionListener.class,
         DbUnitTestExecutionListener.class})
 //@DatabaseSetup("/META-INF/dbtest/sampleData.xml")
-public class UserServiceTest {
+public class DBUnitTest {
     @Autowired
     private UserService userService;
 
@@ -40,7 +40,6 @@ public class UserServiceTest {
     public void teardown() {
 
     }
-
 
     @Test
     public void getUser() throws Exception {
