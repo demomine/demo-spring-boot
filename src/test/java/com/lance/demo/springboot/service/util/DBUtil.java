@@ -6,6 +6,7 @@ import org.dbunit.database.IDatabaseConnection;
 import org.dbunit.database.QueryDataSet;
 import org.dbunit.dataset.IDataSet;
 import org.dbunit.dataset.xml.FlatXmlDataSet;
+import org.junit.Test;
 
 import java.io.FileOutputStream;
 import java.sql.Connection;
@@ -16,6 +17,14 @@ public class DBUtil {
     private static final String USERNAME = "root";
     private static final String PASSWORD = "xb-12345";
     private static final String DRIVE_NAME = "com.mysql.jdbc.Driver";
+
+    @Test
+    public void generateData() {
+        String[] tables = {"t_user","t_class"};
+        String dir = "/com/lance/demo/springboot/service";
+        DBUtil.extractTables(dir,tables);
+    }
+
 
     public static void extractTables(String targetDirectory,String table,String queryString) {
         try {
