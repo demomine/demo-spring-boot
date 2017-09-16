@@ -14,11 +14,53 @@
 	<properties>
 		<java.version>1.8</java.version>
         <lombok.version>1.16.16</lombok.version>
-
+		<brave.version>4.7.0</brave.version>
+		<zipkin-reporter.version>1.1.0</zipkin-reporter.version>
 	</properties>
 
 	<dependencies>
+		<!--zipkin dependency -->
+		<dependency>
+			<groupId>io.zipkin.brave</groupId>
+			<artifactId>brave</artifactId>
+			<version>${brave.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>io.zipkin.reporter</groupId>
+			<artifactId>zipkin-sender-okhttp3</artifactId>
+			<version>${zipkin-reporter.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>io.zipkin.brave</groupId>
+			<artifactId>brave-context-log4j2</artifactId>
+			<version>${brave.version}</version>
+		</dependency>
+
+		<dependency>
+            <groupId>io.zipkin.brave</groupId>
+            <artifactId>brave-instrumentation-spring-web</artifactId>
+            <version>${brave.version}</version>
+	    </dependency>
+
+		<dependency>
+			<groupId>io.zipkin.brave</groupId>
+			<artifactId>brave-instrumentation-spring-webmvc</artifactId>
+			<version>${brave.version}</version>
+		</dependency>
         <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <!--<version>${log4j.version}</version>-->
+        </dependency>
+
+
+
+
+
+
+		<dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
