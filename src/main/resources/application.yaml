@@ -1,0 +1,12 @@
+spring:
+  kafka:
+    bootstrap-servers: 192.168.1.72:9092
+    consumer:
+      enable-auto-commit: false
+      group-id: demo-consume-group
+    listener:
+      concurrency: 2
+      ack-mode: manual
+
+kafka:
+  topic: demo-topic
