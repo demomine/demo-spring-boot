@@ -1,4 +1,4 @@
-package com.lance.demo.springboot.config;
+package com.lance.demo.springboot.redis.config;
 
 import org.springframework.context.annotation.Configuration;
 /**
