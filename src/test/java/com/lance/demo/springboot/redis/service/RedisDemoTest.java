@@ -20,5 +20,4 @@ public class RedisDemoTest {
             Thread.sleep(2000L);
         }
     }
-
 }

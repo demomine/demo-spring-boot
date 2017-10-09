@@ -10,6 +10,7 @@ public class RedisDemo {
     @Cacheable(value = "demo-cache",condition = "")
     public String caching(String name, int age) {
         log.info("=========not cached ====,name:{},age:{}",name,age);
+
         return name + age;
     }
 }
