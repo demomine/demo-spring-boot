@@ -1,6 +1,7 @@
 package com.lance.demo.springboot;
 
 import lombok.extern.slf4j.Slf4j;
+import org.slf4j.MDC;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -15,5 +16,4 @@ public class App {
         SpringApplication.run(App.class, args);
         log.info("application start success");
     }
-
 }
