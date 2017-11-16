@@ -15,7 +15,7 @@ import java.util.HashSet;
 import java.util.Set;
 @Slf4j
 public class MonitorFilter implements Filter {
-    public static final String MONITOR_FLAG = "_monitor";
+    private static final String MONITOR_FLAG = "_monitor";
     private Set<String> reqMethod = new HashSet<>();
 
     public MonitorFilter() {
