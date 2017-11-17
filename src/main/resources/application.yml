@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: demo-spring-boot-swagger
+server:
+  port: 8888
+
+springfox:
+  documentation:
+    swagger:
+      v2:
+        path: /swagger

@@ -27,8 +27,35 @@
             <artifactId>lombok</artifactId>
             <version>${lombok.version}</version>
         </dependency>
-	</dependencies>
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger2</artifactId>
+			<version>2.7.0</version>
+		</dependency>
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-bean-validators</artifactId>
+			<version>2.7.0</version>
+		</dependency>
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger-ui</artifactId>
+			<version>2.7.0</version>
+		</dependency>
 
+	</dependencies>
+	<distributionManagement>
+		<repository>
+			<id>xinbang-release</id>
+			<name>xinbang-release</name>
+			<url>http://118.178.238.86:8081/repository/maven-releases</url>
+		</repository>
+		<snapshotRepository>
+			<id>xinbang-snapshots</id>
+			<name>xinbang-release</name>
+			<url>http://118.178.238.86:8081/repository/maven-snapshots</url>
+		</snapshotRepository>
+	</distributionManagement>
 	<repositories>
 		<repository>
 			<id>spring-milestones</id>
@@ -38,6 +65,7 @@
 				<enabled>false</enabled>
 			</snapshots>
 		</repository>
+
 	</repositories>
 
 	<build>
