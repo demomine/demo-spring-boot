@@ -27,6 +27,21 @@
             <artifactId>lombok</artifactId>
             <version>${lombok.version}</version>
         </dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-actuator</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>io.prometheus</groupId>
+			<artifactId>simpleclient_spring_boot</artifactId>
+			<version>0.1.0</version>
+		</dependency>
+		<!--<dependency>
+			<groupId>com.moelholm</groupId>
+			<artifactId>prometheus-spring-boot-starter</artifactId>
+			<version>1.0.1</version>
+		</dependency>-->
+
 	</dependencies>
 
 	<repositories>
@@ -39,6 +54,7 @@
 			</snapshots>
 		</repository>
 	</repositories>
+
 
 	<build>
 		<finalName>demo-spring-boot</finalName>
