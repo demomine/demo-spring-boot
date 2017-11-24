@@ -30,7 +30,6 @@ public class MockitoTest {
     @Mock
     private UserMapper userMapper;
 
-
     @Before
     public void before() {
         when(userServiceSpy.getUser("1")).thenReturn(new User("1"));
