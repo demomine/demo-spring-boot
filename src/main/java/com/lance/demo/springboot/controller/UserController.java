@@ -1,9 +1,12 @@
 package com.lance.demo.springboot.controller;
 
+import com.lance.demo.springboot.config.Page;
 import com.lance.demo.springboot.dao.entity.User;
 import com.lance.demo.springboot.dao.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/user")
@@ -40,5 +43,10 @@ public class UserController {
     @DeleteMapping("/{id}")
     public void deleteUser(@PathVariable String id) {
         userService.deleteById(id);
+    }
+
+    @GetMapping("/user/{age}/pagination")
+    Page<User> getUsers(@PathVariable int age,@ModelAttribute Page<User> page) {
+        return userService.getUsers(page,age);
     }
 }
