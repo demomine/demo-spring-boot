@@ -1,4 +1,4 @@
-package com.lance.demo.springboot;
+package com.lance.demo.springboot.hystrix;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
